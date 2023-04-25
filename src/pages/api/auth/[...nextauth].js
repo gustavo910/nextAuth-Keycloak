@@ -9,6 +9,7 @@ KeycloakProvider({
   clientId: "myclient",
   clientSecret: "myclientsecret",
   issuer: "http://localhost:8080/realms/myrealm",
+  scope: "openid",
   })
     // ...add more providers here
   ],
