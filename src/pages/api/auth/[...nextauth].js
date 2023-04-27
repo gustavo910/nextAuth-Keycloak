@@ -10,7 +10,7 @@ export const authOptions = {
 KeycloakProvider({
   
   clientId: "myclient",
-  clientSecret: "EetKrDocAWic5gAl2zzmzbozcyhLziyc",
+  clientSecret: "OYGsx1KyeoSX0aDitngv0JFCWdAmuzo1",
   issuer: "http://localhost:8080/realms/myrealm",
    scope: "openid email profile roles",
   
