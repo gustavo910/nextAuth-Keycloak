@@ -6,7 +6,7 @@ const privatePage = () => {
   return (
             <>
             Pagina para usuarios do grupo private
-        Signed in as {session.user.email} <br />
+        Signed in as {session} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </>
   );

@@ -13,10 +13,11 @@ KeycloakProvider({
   clientSecret: "OYGsx1KyeoSX0aDitngv0JFCWdAmuzo1",
   issuer: "http://localhost:8080/realms/myrealm",
    scope: "openid email profile roles",
-  
+   
+   
 profile(profile, tokens) {
     const newToken = tokens.access_token;
-const decodedToken = jwt_decode(newToken);
+    const decodedToken = jwt_decode(newToken);
     console.log(decodedToken.realm_access.roles)
 
    // const roles = tokens.access_token ;

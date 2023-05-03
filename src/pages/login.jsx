@@ -1,12 +1,13 @@
-import { useSession, signIn, signOut,  } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 
 export default function Component() {
   const { data: session, loading} = useSession()
   const router = useRouter();
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (session && session.user && session.user.groups && session.user.groups.includes('usuarioPublico')) {
       //router.replace('/public');
       console.log('usuarioPublico')
@@ -14,8 +15,13 @@ export default function Component() {
       //router.replace('/private');
       console.log('usuarioPrivado')
     }
-  }, [session, loading, router]);
+  }, [session, loading, router]);*/
+
   if (session) {
+       
+      const handleSignOut = () => {
+        signOut()
+  }
     return (
       <>
         {session.user && session.user.groups && (
@@ -28,15 +34,15 @@ export default function Component() {
         {console.log(session)}
       
       
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        Signed in as {session.user.name} <br />
+        <button onClick={handleSignOut}>Sign out</button>
       </>
     )
   }
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <button onClick={() => signIn('keycloak')}>Sign in</button>
     </>
   )
 }
